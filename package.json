@@ -1,0 +1,12 @@
+{
+  "name": "python-app",
+  "version": "1.0.0",
+  "description": "Python Flask application",
+  "main": "app.py",
+  "scripts": {
+    "start": "gunicorn app:app"
+  },
+  "keywords": ["python", "flask", "vercel"],
+  "author": "",
+  "license": "ISC"
+}
