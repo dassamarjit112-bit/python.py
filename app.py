@@ -6,8 +6,8 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def home():
     greeting = ""
-    qr= qrcode.create(user_input)
-    qr.save= ("qr.png")
+    qr= qrcode.make(user_input)
+    qr.save("qr.png")
 
     # Check if the user submitted the form
     if request.method == 'POST':
