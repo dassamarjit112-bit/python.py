@@ -11,9 +11,9 @@ def home():
         # Get the input data from the HTML form (linked by 'name="username"')
         user_input = request.form.get('username')
         qr= qrcode.make(user_input)
-        qr.save("qr.png")
+        qr.save("my_qr.png")
         if user_input:
-            greeting = "qr.png"
+            greeting = "my_qr.png"
             
     # Send the greeting variable back to the HTML page
     return render_template('index.html', output=greeting)
