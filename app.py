@@ -15,7 +15,7 @@ def home():
         user_input = request.form.get('username')
         
         if user_input:
-            greeting = f"qr.png"
+            greeting ="qr.png"
             
     # Send the greeting variable back to the HTML page
     return render_template('index.html', output=greeting)
