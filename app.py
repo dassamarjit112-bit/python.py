@@ -1,22 +1,24 @@
 import qrcode
-from flask import Flask, render_template, request
+import io
+from flask import Flask, render_template, request, send_file
 app = Flask(__name__)
 # This route displays the home page
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    greeting = ""
 
     # Check if the user submitted the form
     if request.method == 'POST':
         # Get the input data from the HTML form (linked by 'name="username"')
         user_input = request.form.get('username')
-        qr= qrcode.make(user_input)
-        qr.save("my_qr.png")
         if user_input:
-            greeting = "my_qr.png"
-            
+            img = qrcode.make(user_input)
+            buffer = io.BytesIO()
+            img.save(buffer, format="PNG")
+            buffer.seek(0)
+            return send_file(buffer,mimetype='image/png')
+            8
     # Send the greeting variable back to the HTML page
-    return render_template('index.html', output=greeting)
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
