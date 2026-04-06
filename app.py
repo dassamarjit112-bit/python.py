@@ -16,7 +16,6 @@ def home():
             img.save(buffer, format="PNG")
             buffer.seek(0)
             return send_file(buffer,mimetype='image/png')
-            8
     # Send the greeting variable back to the HTML page
     return render_template('index.html')
 
