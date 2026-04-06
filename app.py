@@ -12,7 +12,7 @@ def index():
         data = request.form.get("username")
         if data:
             #genarate qrcode 
-            qr = qrcode.QRcode(version=1, box_size=10, border=5)
+            qr = qrcode.QRCode(version=1, box_size=10, border=5)
             qr.add_data(data)
             qr.make(fit=True)
             #save img in memory
