@@ -5,7 +5,7 @@ app = Flask(__name__)
 # This route displays the home page
 @app.route('/', methods=['GET', 'POST'])
 def home():
-
+    qr_img_url = None
     # Check if the user submitted the form
     if request.method == 'POST':
         # Get the input data from the HTML form (linked by 'name="username"')
